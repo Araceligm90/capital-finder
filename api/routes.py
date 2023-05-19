@@ -6,10 +6,13 @@ import requests
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         url = self.path
+        print(f"url is: {url}")
         url_components = parse.urlsplit(url)
+        print(f"url_list is: {url_components}")
         query_string_list = parse.parse_qsl(url_components.query)
+        print(f"query string list is: {query_string_list}")
         dictionary = dict(query_string_list)
-
+        
         country = dictionary.get('country')
         country_url = f"https://restcountries.com/v3.1/name/{country}"
 
