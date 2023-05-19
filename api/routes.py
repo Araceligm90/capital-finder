@@ -13,8 +13,6 @@ class handler(BaseHTTPRequestHandler):
         print(f"query string list is: {query_string_list}")
         dictionary = dict(query_string_list)
 
-        message = ''
-        
         country = dictionary.get('country')
         country_url = f"https://restcountries.com/v3.1/name/{country}"
 
@@ -45,4 +43,3 @@ if __name__ == '__main__':
     httpd = HTTPServer(server_address, handler)
     print(f'Starting httpd server on {server_address[0]}:{server_address[1]}')
     httpd.serve_forever()
-
